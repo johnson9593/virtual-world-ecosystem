@@ -2,6 +2,280 @@
 
 A server-based virtual world simulation where users can create and manage virtual creatures that interact in a living ecosystem. Creatures can be Herbivores, Carnivores, or Omnivores, each with unique behaviors and survival strategies.
 
+![Virtual World](https://img.shields.io/badge/Virtual-World-blue.svg)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Creatures](https://img.shields.io/badge/Creatures-25-red.svg)
+
+## 🚀 Live Demo
+
+**Live Demo**: https://virtual-world-demo.herokuapp.com *(coming soon)*
+
+**Test Instance**: https://3000-fc85eef1-6f9e-4ac0-b6a1-c596dbe446cb.proxy.daytona.works
+
+## 📋 Table of Contents
+- [🎮 Features](#-features)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [🚀 Quick Start](#-quick-start)
+- [📦 Installation](#-installation)
+- [🔧 Configuration](#-configuration)
+- [📊 API Documentation](#-api-documentation)
+- [🚀 Deployment](#-deployment)
+- [📚 Documentation](#-documentation)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+## 🎮 Features
+
+### Core Ecosystem
+- **Three Creature Types**: Herbivores, Carnivores, Omnivores
+- **Autonomous Simulation**: Runs continuously without intervention
+- **Food Chain Dynamics**: Realistic predator-prey relationships
+- **Reproduction System**: Creatures reproduce when healthy
+- **Natural Death**: From starvation, hunting, or old age
+
+### User Features
+- **Account Management**: Secure registration and login
+- **Creature Creation**: Unlimited creatures per user
+- **Real-time Monitoring**: Live dashboard updates
+- **Daily Reports**: Automated summaries at 9:00 AM
+- **Interactive Map**: Visual creature tracking
+
+### Admin Features
+- **Full Ecosystem Monitoring**: All creatures and users
+- **Event Log**: Complete history of ecosystem events
+- **Statistics Dashboard**: Population and resource tracking
+- **User Management**: View all registered users
+
+## 🛠️ Technology Stack
+
+- **Backend**: Node.js + Express
+- **Database**: SQLite3 (lightweight, file-based)
+- **Authentication**: JWT (JSON Web Tokens)
+- **Frontend**: HTML5 + CSS3 + JavaScript
+- **Scheduling**: node-cron (automated tasks)
+- **Email**: Nodemailer (notifications)
+- **Process Manager**: PM2 (production deployment)
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18.x or higher
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/virtual-world-ecosystem.git
+   cd virtual-world-ecosystem
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment**
+   ```bash
+   cp .env.example .env
+   nano .env  # Edit with your settings
+   ```
+
+4. **Start the server**
+   ```bash
+   npm start
+   ```
+
+5. **Access the application**
+   - Open browser: http://localhost:3000
+   - Admin login: username: `admin`, password: `admin123`
+
+## 📦 Installation Options
+
+### Development
+```bash
+npm install
+npm run dev
+```
+
+### Production with PM2
+```bash
+npm install -g pm2
+npm install --production
+pm2 start server/server.js --name virtual-world
+```
+
+### Docker (Coming Soon)
+```bash
+docker build -t virtual-world .
+docker run -p 3000:3000 virtual-world
+```
+
+## 🔧 Configuration
+
+### Environment Variables (.env)
+```env
+PORT=3000
+NODE_ENV=production
+JWT_SECRET=your-super-secret-key
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+SIMULATION_INTERVAL=30000
+FOOD_GROWTH_RATE=50
+```
+
+### Simulation Settings
+- **Cycle Interval**: 30 seconds (configurable)
+- **Food Growth**: 50 units per cycle
+- **Initial Creatures**: 25 (auto-spawned)
+- **Max Age**: 100 days
+- **Reproduction Chance**: 5% per cycle (when healthy)
+
+## 📊 API Documentation
+
+### Authentication
+```http
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/me
+```
+
+### Creatures
+```http
+POST /api/creatures          # Create new creature
+GET /api/creatures           # Get all living creatures
+GET /api/creatures/my        # Get user's creatures
+```
+
+### World
+```http
+GET /api/world              # Get world state
+GET /api/world/stats        # Get detailed statistics
+```
+
+### Admin
+```http
+GET /api/admin/users        # Get all users
+GET /api/admin/events       # Get event log
+GET /api/admin/creatures/all # Get all creatures
+```
+
+### Health Check
+```http
+GET /api/health            # Server health status
+```
+
+## 🚀 Deployment
+
+### Linode Cloud (Recommended)
+**Cost**: $12/month for Linode 2GB
+
+1. **Create Linode Instance**
+   - Ubuntu 22.04 LTS
+   - Linode 2GB plan
+   - Choose closest region
+
+2. **Deploy with PM2**
+   ```bash
+   # On your Linode server
+   curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+   apt install -y nodejs git nginx ufw
+   npm install -g pm2
+   
+   # Upload files
+   scp -r virtual-world-ecosystem root@YOUR_LINODE_IP:/var/www/
+   
+   # Start application
+   cd /var/www/virtual-world-ecosystem
+   npm install --production
+   pm2 start server/server.js --name virtual-world
+   ```
+
+3. **Complete setup guide**: [docs/LINODE_DEPLOYMENT.md](docs/LINODE_DEPLOYMENT.md)
+
+### Other Hosting Options
+- **Heroku**: [Heroku deployment guide](docs/HEROKU_DEPLOYMENT.md)
+- **DigitalOcean**: [DO deployment guide](docs/DIGITALOCEAN_DEPLOYMENT.md)
+- **AWS EC2**: [AWS deployment guide](docs/AWS_DEPLOYMENT.md)
+
+## 📚 Documentation
+
+- **[User Guide](docs/USER_GUIDE.md)** - Complete user documentation
+- **[Linode Deployment](docs/LINODE_DEPLOYMENT.md)** - Step-by-step deployment
+- **[Quick Start](docs/QUICK_START.md)** - Instant access guide
+- **[Contributing](CONTRIBUTING.md)** - How to contribute
+
+## 🎮 How to Play
+
+### Creating Creatures
+1. Register an account
+2. Click "Create Creature"
+3. Choose a name and type
+4. Watch your creature interact with the ecosystem!
+
+### Understanding Creature Types
+- **Herbivores**: 🌿 Eat plants, peaceful but vulnerable
+- **Carnivores**: 🦁 Hunt other creatures, strong but energy-intensive
+- **Omnivores**: 🐻 Eat both, balanced survival strategy
+
+### Survival Tips
+- Monitor your creatures' health and energy
+- Check daily reports for updates
+- Balance your creature types for ecosystem stability
+- Watch the interactive map for real-time positions
+
+## 📈 Ecosystem Statistics
+
+**Current Demo Stats:**
+- Total Creatures: Dynamic
+- Herbivores: Varies by simulation
+- Carnivores: Varies by simulation
+- Omnivores: Varies by simulation
+- Food Available: Regenerates continuously
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Areas for Contribution
+- New creature types
+- Environmental features
+- Mobile app development
+- Performance optimizations
+- UI/UX improvements
+
+## 📄 License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ by NinjaTech AI
+- Inspired by classic ecosystem simulations
+- Powered by Node.js and Express
+- Database by SQLite3
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/yourusername/virtual-world-ecosystem/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/virtual-world-ecosystem/discussions)
+- **Documentation**: [Wiki](https://github.com/yourusername/virtual-world-ecosystem/wiki)
+
+---
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/virtual-world-ecosystem&type=Date)](https://star-history.com/#yourusername/virtual-world-ecosystem&Date)
+
+---
+
+**Enjoy your Virtual World! Create creatures, watch them thrive, and build your own ecosystem! 🌍🦁🌿**
+
+*Created with ❤️ by NinjaTech AI*
+
 ## Features
 
 ### 🦁 Creature System

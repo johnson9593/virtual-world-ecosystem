@@ -1,0 +1,33 @@
+name: Deploy to Linode
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install --production
+      
+    - name: Create deployment package
+      run: |
+        mkdir -p deploy
+        cp -r server client docs package.json package-lock.json deploy/
+        tar -czf virtual-world-deploy.tar.gz deploy/
+        
+    - name: Upload deployment artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: virtual-world-deployment
+        path: virtual-world-deploy.tar.gz
