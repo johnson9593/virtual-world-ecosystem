@@ -11,8 +11,6 @@ A server-based virtual world simulation where users can create and manage virtua
 
 **Live Demo**: https://virtual-world-demo.herokuapp.com *(coming soon)*
 
-**Test Instance**: https://3000-fc85eef1-6f9e-4ac0-b6a1-c596dbe446cb.proxy.daytona.works
-
 ## 📋 Table of Contents
 - [🎮 Features](#-features)
 - [🛠️ Technology Stack](#️-technology-stack)
@@ -67,7 +65,7 @@ A server-based virtual world simulation where users can create and manage virtua
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/virtual-world-ecosystem.git
+   git clone https://github.com/johnson9593/virtual-world-ecosystem.git
    cd virtual-world-ecosystem
    ```
 
@@ -260,15 +258,15 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/virtual-world-ecosystem/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/virtual-world-ecosystem/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/virtual-world-ecosystem/wiki)
+- **Issues**: [GitHub Issues](https://github.com/johnson9593/virtual-world-ecosystem/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/johnson9593/virtual-world-ecosystem/discussions)
+- **Documentation**: [Wiki](https://github.com/johnson9593/virtual-world-ecosystem/wiki)
 
 ---
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/virtual-world-ecosystem&type=Date)](https://star-history.com/#yourusername/virtual-world-ecosystem&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=johnson9593/virtual-world-ecosystem&type=Date)](https://star-history.com/#johnson9593/virtual-world-ecosystem&Date)
 
 ---
 
@@ -603,10 +601,6 @@ For issues or questions:
 2. Review the deployment guide
 3. Check application logs
 4. Open an issue on the repository
-
-## Credits
-
-Created by NinjaTech AI
 
 ---
 
