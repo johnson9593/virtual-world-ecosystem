@@ -80,7 +80,7 @@ mkdir virtual-world
 cd virtual-world
 
 # If using Git:
-# git clone YOUR_REPOSITORY_URL .
+# git clone https://github.com/johnson9593/virtual-world-ecosystem.git .
 
 # Or upload files via SCP from your local machine:
 # scp -r /path/to/virtual-world/* virtualworld@YOUR_LINODE_IP:/home/virtualworld/virtual-world/
